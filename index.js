@@ -28,7 +28,7 @@ const uploadFiles = multer({ storage: storage }).array("files", 10);
 const upload = util.promisify(uploadFiles);
 
 const converWebpToJpeg = async (filename, destination) => {
-    webp.dwebp(filename, destination, "-o").then((result) => console.log(result)).catch((error) => console.error(error));
+    return webp.dwebp(filename, destination, "-o").then((result) => console.log(result)).catch((error) => console.error(error));
 }
 
 app.get("/", (_, res) => {
